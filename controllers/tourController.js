@@ -21,8 +21,7 @@ exports.getAllTours = catchAsync(async (req, res, next) => {
       .paginate()
     const tours = await features.query
 
-    // const query = await Tour.find().where('duration').equals(5).where('difficulty').equals('easy');
-    // SEND RESPONSE
+  // SEND RESPONSE
     res.status(200).json({
       status: 'success',
       results: tours.length,
