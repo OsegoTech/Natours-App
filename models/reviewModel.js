@@ -52,3 +52,7 @@ reviewSchema.pre(/^find/, function (next) {
 // Preventing duplicate reviews
 const Review = mongoose.model('Review', reviewSchema);
 module.exports = Review;
+
+// POST /tour/234fad4/reviews
+// GET /tour/234fad4/reviews
+// GET /tour/234fad4/reviews/987dfg
