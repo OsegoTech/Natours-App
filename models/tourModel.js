@@ -108,14 +108,23 @@ const tourSchema = new mongoose.Schema({
       type: mongoose.Schema.ObjectId,
       ref: 'User'
   }
-  ]
+  ],
+
 }, {
   toJSON: { virtuals: true},
-  toObject: { virtuals: true}
+  toObject: { virtuals: true},
+  timestamps: true
 })
 
 tourSchema.virtual('durationWeeks').get(function() {
   return this.duration / 7
+})
+
+// Virtual populate
+tourSchema.virtual('reviews', {
+  ref: 'Review',
+  foreignField: 'tour',
+  localField: '_id'
 })
 
 // Document middleware runs before the .save() and .create()
