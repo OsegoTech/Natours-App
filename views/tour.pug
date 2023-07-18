@@ -1,10 +1,9 @@
 extends base
 include _reviewCard
 block append head
-    //- link(rel='stylesheet', href='/css/tour.css')
-    //- script(src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js')
-    //- link(href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css', rel='stylesheet')
-    //- script(src='/js/mapbox.js')
+    //- script(src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js')
+    //- link(href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet')
+
 mixin overviewBox(label, text, icon)
     .overview-box__detail
         svg.overview-box__icon
@@ -67,7 +66,7 @@ block content
                 img.picture-box__img.picture-box__img(src=`/img/tours/${img}`, alt=`${tour.name}`, class=`picture-box__img--${i + 1}`)
 
     section.section-map
-    #map(data-locations=`${JSON.stringify(tour.locations)}`)
+        #map(data-locations=`${JSON.stringify(tour.locations)}`)
 
     section.section-reviews
         .reviews
